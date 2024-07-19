@@ -1,0 +1,74 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Main extends JFrame {
+    private JTextField nameField, mobileField, addressField;
+    private JRadioButton maleButton, femaleButton;
+    private JComboBox<String> dayBox, monthBox, yearBox;
+    private JButton submitButton, resetButton;
+
+    public Main() {
+        setTitle("Registration Form");
+        setSize(400, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridLayout(8, 2));
+
+        // Add components
+        add(new JLabel("Name:"));
+        nameField = new JTextField();
+        add(nameField);
+
+        add(new JLabel("Mobile:"));
+        mobileField = new JTextField();
+        add(mobileField);
+
+        add(new JLabel("Gender:"));
+        maleButton = new JRadioButton("Male");
+        femaleButton = new JRadioButton("Female");
+        ButtonGroup genderGroup = new ButtonGroup();
+        genderGroup.add(maleButton);
+        genderGroup.add(femaleButton);
+        add(maleButton);
+        add(femaleButton);
+
+        add(new JLabel("DOB:"));
+        dayBox = new JComboBox<>(new String[]{"1", "2", "3", "..."});
+        monthBox = new JComboBox<>(new String[]{"Jan", "Feb", "Mar", "..."});
+        yearBox = new JComboBox<>(new String[]{"1990", "1991", "1992", "..."});
+        add(dayBox);
+        add(monthBox);
+        add(yearBox);
+
+        add(new JLabel("Address:"));
+        addressField = new JTextField();
+        add(addressField);
+
+        submitButton = new JButton("Submit");
+        resetButton = new JButton("Reset");
+        add(submitButton);
+        add(resetButton);
+
+        // Add action listeners
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Code to save data to database
+            }
+        });
+
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Code to reset form fields
+            }
+        });
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Main main = new Main();
+    }
+}
